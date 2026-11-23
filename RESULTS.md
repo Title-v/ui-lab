@@ -30,3 +30,7 @@ I used the site controls in a fresh Google Chrome Incognito window, starting sig
 | 7. Find the pizza by name | Its admin entry shows the same tool as step 4. | The last row read `Lab Pizza 20261122-195512 (tool=Scissors, ingredients_number=6)`. | Pass |
 
 [Manual Chrome screenshot of the admin list](qp01-manual-admin.png)
+
+## Part 3 — Robot Framework
+
+**Step 3.1.** `robot --version` reported `Robot Framework 7.5.1 (Python 3.15.2 on darwin)`.

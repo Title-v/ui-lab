@@ -12,3 +12,5 @@ QP-01 A Custom Pizza Reaches The Admin List
     ${name}=    Set Variable    Lab Pizza ${stamp}
     Enter Pizza Restrictions    600    Knife    ${name}
     Capture Page Screenshot    qp01-step3-fields.png
+    ${tool}=    Request And Check Pizza    ${name}    Knife    600
+    Capture Element Screenshot    id:recommendations    qp01-step4-pizza.png

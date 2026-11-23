@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary    timeout=10s
+Library    String
 
 *** Variables ***
 ${BROWSER}    chrome
@@ -35,3 +36,17 @@ Enter Pizza Restrictions
     Checkbox Should Be Selected    id:default-checkbox
     Textfield Value Should Be    css:input#pizza-name    ${name}
     Press Keys    css:input#pizza-name    TAB
+
+Request And Check Pizza
+    [Documentation]    Step 4. Check the name, tool and calories on the recommendation.
+    [Arguments]    ${name}    ${excluded_tool}    ${limit}
+    Click Button    name:pizza-please
+    Wait Until Element Contains    id:recommendations    Name: ${name}
+    ${line}=    Get Text    xpath://p[starts-with(.,'Tool:')]
+    ${tool}=    Remove String    ${line}    Tool:${SPACE}
+    Should Not Be Empty    ${tool}
+    Should Not Be Equal    ${tool}    ${excluded_tool}
+    ${line}=    Get Text    xpath://p[starts-with(.,'Calories per slice:')]
+    ${calories}=    Remove String    ${line}    Calories per slice:${SPACE}
+    Should Be True    0 <= int($calories) <= int($limit)
+    RETURN    ${tool}

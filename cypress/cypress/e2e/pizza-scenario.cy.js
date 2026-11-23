@@ -38,10 +38,12 @@ it('QP-01 keeps the pizza restrictions and shows the same tool to the admin', ()
     cy.writeFile('recommendation.json', { name, tool: pizza.tool, calories })
     cy.wrap(pizza.tool).as('tool')
   })
+  cy.screenshot('qp01-step4-recommendation', { capture: 'fullPage' })
 
   // 5. Check that a guest is asked to sign in.
   cy.get('button[name="rate-5"]').click()
   cy.get('#rate-result').should('have.text', 'Please log in first.')
+  cy.screenshot('qp01-step5-login-needed')
 
   // 6. Sign in on the admin page.
   cy.adminLogin('admin', 'admin')
@@ -53,4 +55,5 @@ it('QP-01 keeps the pizza restrictions and shows the same tool to the admin', ()
       cy.writeFile('evidence.json', { name, row: row.text().trim() })
     })
   })
+  cy.screenshot('qp01-step7-admin-list')
 })

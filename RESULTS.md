@@ -48,7 +48,7 @@ I used the site controls in a fresh Google Chrome Incognito window, starting sig
 
 **Step 4.1.** Node.js reported `v24.16.0` and npm reported `11.13.0`. The Cypress package and binary both reported `16.3.0`.
 
-**Step 4.3.** Changing only the capital F in the expected title produced this failure. The test now uses the corrected title.
+**Step 4.3.** Changing only the capital F in the expected title produced this failure. Both full runs below use the corrected title.
 
 ```text
 Timed out retrying after 10000ms
@@ -58,6 +58,13 @@ Timed out retrying after 10000ms
 +'Web Form'
 ```
 
-**Step 4.6.** In Chrome run 2, `POST /api/pizza` returned HTTP 200, Scissors and 600 calories per slice. The recommendation on screen showed both returned values. [API values](cypress/recommendation.json)
+**Step 4.6.** In Chrome run 2, `POST /api/pizza` returned HTTP 200, Scissors and 600 calories per slice. The recommendation on screen showed both returned values. [API values](cypress/runs/run2/recommendation.json) · [Full-page screenshot](cypress/runs/run2/screenshots/pizza-scenario.cy.js/qp01-step4-recommendation.png)
 
-**Step 4.7.** The admin row in that run read `Lab Pizza 20261122-130004 (tool=Scissors, ingredients_number=8) (newest)`. [Admin entry](cypress/evidence.json)
+**Step 4.7.** The admin row in that run read `Lab Pizza 20261122-130004 (tool=Scissors, ingredients_number=8) (newest)`. [Admin screenshot](cypress/runs/run2/screenshots/pizza-scenario.cy.js/qp01-step7-admin-list.png)
+
+**Step 4.8.** Each Chrome run included both specs. Durations come from the final Cypress summary.
+
+| Run | Result | Total duration | Pizza name | Evidence |
+|---|---|---:|---|---|
+| 1 | 2 passed, 0 failed | 13 s | Lab Pizza 20261122-125938 | [Terminal](cypress/runs/run1/terminal.txt) · [QP-01 video](cypress/runs/run1/videos/pizza-scenario.cy.js.mp4) |
+| 2 | 2 passed, 0 failed | 11 s | Lab Pizza 20261122-130004 | [Terminal](cypress/runs/run2/terminal.txt) · [QP-01 video](cypress/runs/run2/videos/pizza-scenario.cy.js.mp4) |

@@ -42,4 +42,15 @@ it('QP-01 keeps the pizza restrictions and shows the same tool to the admin', ()
   // 5. Check that a guest is asked to sign in.
   cy.get('button[name="rate-5"]').click()
   cy.get('#rate-result').should('have.text', 'Please log in first.')
+
+  // 6. Sign in on the admin page.
+  cy.adminLogin('admin', 'admin')
+  cy.contains('Latest pizza recommendations').should('be.visible')
+
+  // 7. Match this run's pizza and tool in the same list item.
+  cy.get('@tool').then(tool => {
+    cy.contains('li', name).should('contain', '(tool=' + tool + ',').then(row => {
+      cy.writeFile('evidence.json', { name, row: row.text().trim() })
+    })
+  })
 })

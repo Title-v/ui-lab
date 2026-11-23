@@ -59,3 +59,5 @@ Timed out retrying after 10000ms
 ```
 
 **Step 4.6.** In Chrome run 2, `POST /api/pizza` returned HTTP 200, Scissors and 600 calories per slice. The recommendation on screen showed both returned values. [API values](cypress/recommendation.json)
+
+**Step 4.7.** The admin row in that run read `Lab Pizza 20261122-130004 (tool=Scissors, ingredients_number=8) (newest)`. [Admin entry](cypress/evidence.json)

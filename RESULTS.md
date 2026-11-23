@@ -70,3 +70,19 @@ Timed out retrying after 10000ms
 | 2 | 2 passed, 0 failed | 11 s | Lab Pizza 20261122-130004 | [Terminal](cypress/runs/run2/terminal.txt) · [QP-01 video](cypress/runs/run2/videos/pizza-scenario.cy.js.mp4) |
 
 **Step 4.9 (optional).** Both specs also passed in Microsoft Edge 157.0.4341.46 in 11 seconds. [Edge run summary](cypress/runs/edge/terminal.txt)
+
+## Part B — Reflection
+
+1. **Why use the calories label?** In Chrome, `#floating_filled` matched three number fields. The XPath for the input beside “Max Calories per Slice” matched just one. Giving that input a unique ID such as `max-calories` and linking its label with `for="max-calories"` would let a tester select the right field directly.
+
+2. **What kind of oracle checks the admin tool?** Step 7 is a consistency check between two views of the same pizza. In the manual run, the recommendation and the last admin row both showed Scissors. If the admin page displayed another pizza’s tool, such as Knife, this check would catch the mismatch.
+
+3. **How could the test verify a vegetarian pizza?** The manual run showed the vegetarian box checked and listed mozzarella and spinach in the result. I would check the dough and every ingredient against a trusted catalog that gives each item’s vegetarian status. An item marked nonvegetarian or missing from the catalog would fail the check.
+
+4. **How did Robot and Cypress compare?** Robot took more setup because I wrote explicit waits, including one for the Knife option. In its HTML log I could expand each keyword and open the four screenshots. Cypress was quicker to write because assertions retried automatically and `cy.wait('@pizza')` waited for the response. The video made the transition from guest rating to admin sign-in easy to follow.
+
+5. **Which tool would I use for Project 2?** I would use Cypress for two reasons. In Chrome run 2, one test checked that the API and the page both showed Scissors and exactly 600 calories. Its recording also let me review the customer and admin screens in one place.
+
+6. **Where would I fix the Robot calories locator?** I would update `${CALORIES}` in `robot/resources/quickpizza.resource`. `Show Advanced Fields` uses it to find the box, and `Enter Pizza Restrictions` uses it to enter and verify 600. The scenario calls those keywords, so the same test steps pick up the new locator.
+
+7. **Why keep QP-01 in one Cypress test?** QuickPizza uses a cookie to keep the browser on the server that created its pizza. Cypress clears cookies and aliases before each test. If steps 6 and 7 started a second test, the admin could sign in on a different server whose list did not contain that pizza. Keeping one test also preserved the pizza name and `@tool` for the comparison in step 7.

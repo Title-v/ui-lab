@@ -68,3 +68,5 @@ Timed out retrying after 10000ms
 |---|---|---:|---|---|
 | 1 | 2 passed, 0 failed | 13 s | Lab Pizza 20261122-125938 | [Terminal](cypress/runs/run1/terminal.txt) · [QP-01 video](cypress/runs/run1/videos/pizza-scenario.cy.js.mp4) |
 | 2 | 2 passed, 0 failed | 11 s | Lab Pizza 20261122-130004 | [Terminal](cypress/runs/run2/terminal.txt) · [QP-01 video](cypress/runs/run2/videos/pizza-scenario.cy.js.mp4) |
+
+**Step 4.9 (optional).** Both specs also passed in Microsoft Edge 157.0.4341.46 in 11 seconds. [Edge run summary](cypress/runs/edge/terminal.txt)

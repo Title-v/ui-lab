@@ -1,0 +1,97 @@
+
+================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        16.3.0                                                                         │
+  │ Browser:        Edge 157 (headless)                                                            │
+  │ Node Version:   v24.16.0 (/Users/title/.nvm/versions/node/v24.16.0/bin/node)                   │
+  │ Specs:          2 found (pizza-scenario.cy.js, web-form.cy.js)                                 │
+  │ Searched:       cypress/e2e/**/*.cy.{js,jsx,ts,tsx}                                            │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  pizza-scenario.cy.js                                                            (1 of 2)
+
+
+  ✓ QP-01 keeps the pizza restrictions and shows the same tool to the admin (7138ms)
+
+  1 passing (9s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  3                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     9 seconds                                                                        │
+  │ Spec Ran:     pizza-scenario.cy.js                                                             │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /Users/title/Documents/Codex/2026-11-22/l/work/recheck/edge/cypress/screenshots/    (1272x1245)
+     pizza-scenario.cy.js/qp01-step4-recommendation.png                                             
+  -  /Users/title/Documents/Codex/2026-11-22/l/work/recheck/edge/cypress/screenshots/    (1272x1273)
+     pizza-scenario.cy.js/qp01-step5-login-needed.png                                               
+  -  /Users/title/Documents/Codex/2026-11-22/l/work/recheck/edge/cypress/screenshots/     (1272x662)
+     pizza-scenario.cy.js/qp01-step7-admin-list.png                                                 
+
+
+  (Video)
+
+  -  Video output: /Users/title/Documents/Codex/2026-11-22/l/work/recheck/edge/cypress/videos/pizza-scenario.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  web-form.cy.js                                                                  (2 of 2)
+
+
+  ✓ submits the web form (1455ms)
+
+  1 passing (2s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     2 seconds                                                                        │
+  │ Spec Ran:     web-form.cy.js                                                                   │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Video output: /Users/title/Documents/Codex/2026-11-22/l/work/recheck/edge/cypress/videos/web-form.cy.js.mp4
+
+
+================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✔  pizza-scenario.cy.js                     00:09        1        1        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  web-form.cy.js                           00:02        1        1        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✔  All specs passed!                        00:11        2        2        -        -        -  
+

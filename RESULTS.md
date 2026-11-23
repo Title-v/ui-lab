@@ -57,3 +57,5 @@ Timed out retrying after 10000ms
 -'Web form'
 +'Web Form'
 ```
+
+**Step 4.6.** In Chrome run 2, `POST /api/pizza` returned HTTP 200, Scissors and 600 calories per slice. The recommendation on screen showed both returned values. [API values](cypress/recommendation.json)

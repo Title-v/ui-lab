@@ -22,13 +22,21 @@ it('QP-01 keeps the pizza restrictions and shows the same tool to the admin', ()
   cy.get('#default-checkbox').check().should('be.checked')
   cy.get('input#pizza-name').type(name).should('have.value', name)
 
-  // 4. Check the recommendation against the request.
+  // 4. Compare the API response with the recommendation on screen.
+  cy.intercept('POST', '/api/pizza').as('pizza')
   cy.get('button[name="pizza-please"]').click()
-  cy.get('#recommendations').should('contain', 'Name: ' + name)
-  cy.contains('#recommendations p', 'Tool:').should('not.contain', 'Knife')
-  cy.contains('#recommendations p', 'Calories per slice:').should(line => {
-    const calories = Number(line.text().replace('Calories per slice:', '').trim())
+  cy.wait('@pizza').then(({ request, response }) => {
+    expect(request.body.maxCaloriesPerSlice).to.equal(600)
+    expect(response.statusCode).to.equal(200)
+    const { pizza, calories } = response.body
+    expect(pizza.tool).to.be.a('string').and.not.be.empty
+    expect(pizza.tool).not.to.equal('Knife')
     expect(calories).to.be.within(0, 600)
+    cy.get('#recommendations').should('contain', 'Name: ' + name)
+    cy.contains('#recommendations p', 'Tool:').should('have.text', 'Tool: ' + pizza.tool)
+    cy.contains('#recommendations p', 'Calories per slice:').should('have.text', 'Calories per slice: ' + calories)
+    cy.writeFile('recommendation.json', { name, tool: pizza.tool, calories })
+    cy.wrap(pizza.tool).as('tool')
   })
 
   // 5. Check that a guest is asked to sign in.

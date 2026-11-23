@@ -47,3 +47,13 @@ I used the site controls in a fresh Google Chrome Incognito window, starting sig
 ## Part 4 — Cypress
 
 **Step 4.1.** Node.js reported `v24.16.0` and npm reported `11.13.0`. The Cypress package and binary both reported `16.3.0`.
+
+**Step 4.3.** Changing only the capital F in the expected title produced this failure. The test now uses the corrected title.
+
+```text
+Timed out retrying after 10000ms
++ expected - actual
+
+-'Web form'
++'Web Form'
+```

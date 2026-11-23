@@ -14,3 +14,19 @@ Selected tools are Robot Framework (Part 3) and Cypress (Part 4).
 | Excluded tools | `select[multiple]` | 1 |
 | Must be vegetarian | `#default-checkbox` | 1 |
 | Custom Pizza Name | `input#pizza-name` | 1 |
+
+### Step 0.5 — QP-01, a custom pizza reaches the admin list
+
+I used the site controls in a fresh Google Chrome Incognito window, starting signed out. The goal was to check the recommendation, the guest rating message and the matching entry for the demo admin. The run created **Lab Pizza 20261122-195512**, with **Scissors** and **325 calories per slice**.
+
+| Step and action | Expected result | Actual result | Outcome |
+|---|---|---|---|
+| 1. Open QuickPizza | The home heading appears. | “Looking to break out of your pizza routine?” appeared. | Pass |
+| 2. Turn on Advanced | All four request controls appear. | Max Calories per Slice, Excluded tools, Must be vegetarian and Custom Pizza Name appeared. | Pass |
+| 3. Enter the restrictions and name | The form keeps all four values. | The limit showed 600, Knife was selected for exclusion, vegetarian was checked and the name showed `Lab Pizza 20261122-195512`. | Pass |
+| 4. Click Pizza, Please! | The name matches, the tool is allowed and calories are at most 600. | The recommendation showed the same name, Scissors and 325 calories per slice. | Pass |
+| 5. Click Love it! as a guest | The site asks the guest to log in. | “Please log in first.” appeared. | Pass |
+| 6. Open `/admin` and sign in with the prefilled demo credentials (both `admin`) | The recommendations list opens. | “Latest pizza recommendations” appeared. | Pass |
+| 7. Find the pizza by name | Its admin entry shows the same tool as step 4. | The last row read `Lab Pizza 20261122-195512 (tool=Scissors, ingredients_number=6)`. | Pass |
+
+[Manual Chrome screenshot of the admin list](qp01-manual-admin.png)

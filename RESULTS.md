@@ -34,3 +34,5 @@ I used the site controls in a fresh Google Chrome Incognito window, starting sig
 ## Part 3 — Robot Framework
 
 **Step 3.1.** `robot --version` reported `Robot Framework 7.5.1 (Python 3.15.2 on darwin)`.
+
+**Step 3.2.** The deliberate wrong-title test reported `Title should have been 'Web Form' but was 'Web form'.` The corrected title check passed.

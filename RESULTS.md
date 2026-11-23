@@ -43,3 +43,7 @@ I used the site controls in a fresh Google Chrome Incognito window, starting sig
 |---|---|---:|---|---|
 | 1 | 1 passed, 0 failed | 00:00:10.828 | Lab Pizza 20261122-195911 | [Report](robot/results/run1/report.html) · [Step log](robot/results/run1/log.html) |
 | 2 | 1 passed, 0 failed | 00:00:09.269 | Lab Pizza 20261122-195921 | [Report](robot/results/run2/report.html) · [Step log](robot/results/run2/log.html) |
+
+## Part 4 — Cypress
+
+**Step 4.1.** Node.js reported `v24.16.0` and npm reported `11.13.0`. The Cypress package and binary both reported `16.3.0`.

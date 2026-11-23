@@ -50,3 +50,23 @@ Request And Check Pizza
     ${calories}=    Remove String    ${line}    Calories per slice:${SPACE}
     Should Be True    0 <= int($calories) <= int($limit)
     RETURN    ${tool}
+
+Rate As A Guest
+    [Documentation]    Step 5. Verify the sign-in message when a guest rates a pizza.
+    Click Button    name:rate-5
+    Wait Until Element Contains    id:rate-result    Please log in first.
+
+Open Admin List
+    [Documentation]    Step 6. Sign in on the admin page in the same browser.
+    [Arguments]    ${user}    ${password}
+    Go To    https://quickpizza.grafana.com/admin
+    Wait Until Page Contains Element    id:svelte-announcer
+    Input Text    id:username    ${user}
+    Input Password    id:password    ${password}
+    Click Button    css:button[type=submit]
+    Wait Until Page Contains    Latest pizza recommendations
+
+Check Admin Entry
+    [Documentation]    Step 7. Match the named pizza and its tool in one admin list entry.
+    [Arguments]    ${name}    ${tool}
+    Wait Until Element Contains    xpath://li[contains(.,'${name}')]    (tool=${tool},

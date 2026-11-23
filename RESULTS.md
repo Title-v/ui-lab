@@ -36,3 +36,10 @@ I used the site controls in a fresh Google Chrome Incognito window, starting sig
 **Step 3.1.** `robot --version` reported `Robot Framework 7.5.1 (Python 3.15.2 on darwin)`.
 
 **Step 3.2.** The deliberate wrong-title test reported `Title should have been 'Web Form' but was 'Web form'.` After restoring the expected title, both Selenium web-form tests passed.
+
+**Step 3.8.** Each headless Chrome run below tested QP-01 on its own. The elapsed times come from the HTML report summary. Each log includes the four screenshots for steps 3, 4, 5 and 7.
+
+| Run | Result | Report elapsed time | Pizza name | Evidence |
+|---|---|---:|---|---|
+| 1 | 1 passed, 0 failed | 00:00:10.828 | Lab Pizza 20261122-195911 | [Report](robot/results/run1/report.html) · [Step log](robot/results/run1/log.html) |
+| 2 | 1 passed, 0 failed | 00:00:09.269 | Lab Pizza 20261122-195921 | [Report](robot/results/run2/report.html) · [Step log](robot/results/run2/log.html) |
